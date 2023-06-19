@@ -1,8 +1,60 @@
+import axios from 'axios';
 /*
   STEP 1: using axios, send a GET request to the following URL
     (replacing the placeholder with your Github name):
     https://api.github.com/users/<your name>
 */
+const followersArray = [tetondan, dustinmyers, justsml, luishrd, bigknell, meggers90];
+
+for (let i = 0; i < followersArray.length; i++) {
+  getGitCard(followersArray[i]);
+}
+
+function getGitCard(username) {
+  axios.get(`https://api.github.com/users/${Meggers90}`)
+  .then(resp => {
+    document.querySelector('cards').appendchild(githubCard(resp.data));
+  })
+  .catch(err => console.error(err))
+}
+
+function githubCard(gitInfo) {
+  const card = document.createElement('div');
+  const img = document.createElement('img');
+  const cardInfo = document.createElement('div');
+  const name = document.createElement('h3');
+  const username = document.createElement('p');
+  const location = document.creatElement('p');
+  const profile = document.createElement('p');
+  const profileLink = document.createElement('a');
+  const bio = document.createElement('p');
+
+  card.classList.add('card');
+  cardInfo.classList.add('card-info');
+  name.classListList.add('name');
+  login.classList.add('username');
+
+  img.src = gitInfo.avatar_url;
+  img.alt = "github user";
+  username.textContent = gitInfo.username;
+  login.textContent = gitInfo.login;
+  location.textContent = gitInfo.location;
+  profile.textContent = "profile";
+  profileLink.textContent = "link to profile";
+  profileLink.href = gitInfo.html_url;
+  bio.textContent =gitInfo.bio;
+
+  card.appendChild(img);
+  card.appendChild(cardInfo);
+  cardInfo.apendChild(name);
+  cardInfo.apendChild(login);
+  cardInfo.apendChild(location);
+  cardInfo.apendChild(profile);
+  profile.appendChild(profileLink);
+  cardInfo.appendChild(bio);
+}
+
+return card
 
 /*
   STEP 2: Inspect and study the data coming back, this is YOUR
@@ -28,7 +80,9 @@
     user, and adding that card to the DOM.
 */
 
-const followersArray = [];
+
+
+
 
 /*
   STEP 3: Create a function that accepts a single object as its only argument.
@@ -51,10 +105,9 @@ const followersArray = [];
 */
 
 /*
-  List of LS Instructors Github username's:
-    tetondan
-    dustinmyers
-    justsml
-    luishrd
-    bigknell
+  List of LS Instructors Github username's: tetondan
+   dustinmyers
+   justsml
+   luishrd 
+   bigknell,
 */
